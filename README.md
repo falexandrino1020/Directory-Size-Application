@@ -2,9 +2,9 @@
 
 # 
 
-# A command-line app that simulates a file system and calculates directory sizes
+A command-line app that simulates a file system and calculates directory sizes
 
-# recursively. Supports `cd`, `ls`, and `size` on an in-memory directory tree.
+recursively. Supports `cd`, `ls`, and `size` on an in-memory directory tree.
 
 # 
 
@@ -12,33 +12,33 @@
 
 # 
 
-# The file system is modeled as a \*\*tree\*\*. Every item is a `FileSystemNode` with
+The file system is modeled as a \*\*tree\*\*. Every item is a `FileSystemNode` with
 
-# a name and a size:
+a name and a size:
 
-# 
 
-# \- `FileNode` — a file; its size is fixed.
 
-# \- `DirectoryNode` — a folder that holds other nodes (files or directories).
+\- `FileNode` — a file; its size is fixed.
 
-# 
+\- `DirectoryNode` — a folder that holds other nodes (files or directories).
 
-# A directory's size is the sum of its children's sizes. Because a child can
 
-# itself be a directory, `getSize()` is \*\*recursive\*\*: a file returns its own
 
-# size (the base case), and a directory adds up its children, recursing into any
+A directory's size is the sum of its children's sizes. Because a child can
 
-# subfolders. Since every branch ends in files, the recursion always terminates.
+itself be a directory, `getSize()` is \*\*recursive\*\*: a file returns its own
 
-# 
+size (the base case), and a directory adds up its children, recursing into any
 
-# A separate `Shell` class interprets the commands and tracks the current
+subfolders. Since every branch ends in files, the recursion always terminates.
 
-# directory. Keeping it apart from the tree model means the logic can be tested
 
-# by passing in command strings, without simulating keyboard input.
+
+A separate `Shell` class interprets the commands and tracks the current
+
+directory. Keeping it apart from the tree model means the logic can be tested
+
+by passing in command strings, without simulating keyboard input.
 
 # 
 
@@ -46,51 +46,51 @@
 
 # 
 
-# \- `src/main/java/org/example/Main.java` — the whole application:
+\-`src/main/java/org/example/Main.java` — the whole application:
 
-# &#x20; - `FileSystemNode`, `FileNode`, `DirectoryNode` — the tree model
+&#x20; - `FileSystemNode`, `FileNode`, `DirectoryNode` — the tree model
 
-# &#x20; - `Shell` — the command interpreter
+&#x20; - `Shell` — the command interpreter
 
-# &#x20; - `buildSeedData()` — builds the sample directory tree
+&#x20; - `buildSeedData()` — builds the sample directory tree
 
-# &#x20; - `main()` — the interactive command loop
+&#x20; - `main()` — the interactive command loop
 
-# \- `src/test/java/org/example/MainTest.java` — the JUnit 5 tests
+\- `src/test/java/org/example/MainTest.java` — the JUnit 5 tests
 
-# 
+
 
 # \## Seed Data
 
 # 
 
-# On startup the app loads a sample tree totaling \*\*1030 bytes\*\*:
+On startup the app loads a sample tree totaling \*\*1030 bytes\*\*:
 
-# 
 
-# ```
 
-# root/
+```
 
-# ├── readme.txt        (100)
+root/
 
-# ├── docs/
+├── readme.txt        (100)
 
-# │   ├── resume.pdf    (500)
+├── docs/
 
-# │   └── notes.txt     (50)
+│   ├── resume.pdf    (500)
 
-# └── projects/
+│   └── notes.txt     (50)
 
-# &#x20;   ├── app/
+└── projects/
 
-# &#x20;   │   ├── Main.java (200)
+&#x20;   ├── app/
 
-# &#x20;   │   └── Util.java (150)
+&#x20;   │   ├── Main.java (200)
 
-# &#x20;   └── todo.md       (30)
+&#x20;   │   └── Util.java (150)
 
-# ```
+&#x20;   └── todo.md       (30)
+
+```
 
 # 
 
@@ -98,47 +98,47 @@
 
 # 
 
-# Requires \*\*JDK 21\*\*.
+Requires \*\*JDK 21\*\*.
 
-# 
 
-# ```bash
 
-# git clone https://github.com/falexandrino1020/Directory-Size-Application.git
+```bash
 
-# cd Directory-Size-Application
+git clone https://github.com/falexandrino1020/Directory-Size-Application.git
 
-# javac -d out src/main/java/org/example/Main.java
+cd Directory-Size-Application
 
-# java -cp out org.example.Main
+javac -d out src/main/java/org/example/Main.java
 
-# ```
+java -cp out org.example.Main
 
-# 
+```
 
-# Or open the folder in IntelliJ and click the green \*\*Run\*\* arrow next to `main`.
 
-# 
 
-# Then type commands at the prompt:
+Or open the folder in IntelliJ and click the green \*\*Run\*\* arrow next to `main`.
 
-# 
 
-# ```
 
-# ls        list the current directory
+Then type commands at the prompt:
 
-# cd <dir>  change directory (cd .. to go up, cd / for root)
 
-# size      total size of the current directory (recursive)
 
-# pwd       print the current path
+```
 
-# help      list commands
+ls        list the current directory
 
-# exit      quit
+cd <dir>  change directory (cd .. to go up, cd / for root)
 
-# ```
+size      total size of the current directory (recursive)
+
+pwd       print the current path
+
+help      list commands
+
+exit      quit
+
+```
 
 # 
 
@@ -146,21 +146,21 @@
 
 # 
 
-# In IntelliJ, right-click `MainTest.java` and select \*\*Run\*\*. Ten JUnit 5 tests
+In IntelliJ, right-click `MainTest.java` and select \*\*Run\*\*. Ten JUnit 5 tests
 
-# verify the recursive size calculation, input validation, and shell navigation.
+verify the recursive size calculation, input validation, and shell navigation.
 
-# 
 
-# You can also verify by hand against the seed data:
 
-# 
+You can also verify by hand against the seed data:
 
-# \- `size` at the root prints `1030 bytes`
 
-# \- `cd projects` then `size` prints `380 bytes`
 
-# \- `cd app` then `size` prints `350 bytes`
+\- `size` at the root prints `1030 bytes`
+
+\- `cd projects` then `size` prints `380 bytes`
+
+\- `cd app` then `size` prints `350 bytes`
 
 
 
