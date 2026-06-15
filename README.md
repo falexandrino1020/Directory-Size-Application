@@ -68,8 +68,6 @@ On startup the app loads a sample tree totaling \*\*1030 bytes\*\*:
 
 
 
-```
-
 root/
 
 ├── readme.txt        (100)
@@ -90,9 +88,7 @@ root/
 
 &#x20;   └── todo.md       (30)
 
-```
 
-# 
 
 # How to Run
 
