@@ -70,25 +70,23 @@ On startup the app loads a sample tree totaling \*\*1030 bytes\*\*:
 
 root/
 
-├── readme.txt        (100)
+&#x20;   readme.txt        (100)
 
-├── docs/
+&#x20;   docs/
 
-│   ├── resume.pdf    (500)
+&#x20;       resume.pdf    (500)
 
-│   └── notes.txt     (50)
+&#x20;       notes.txt     (50)
 
-└── projects/
+&#x20;   projects/
 
-&#x20;   ├── app/
+&#x20;       app/
 
-&#x20;   │   ├── Main.java (200)
+&#x20;           Main.java (200)
 
-&#x20;   │   └── Util.java (150)
+&#x20;           Util.java (150)
 
-&#x20;   └── todo.md       (30)
-
-
+&#x20;       todo.md       (30)
 
 # How to Run
 
