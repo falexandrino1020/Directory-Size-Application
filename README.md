@@ -1,4 +1,4 @@
-# \# Directory Size Application
+# Directory Size Application
 
 # 
 
@@ -8,7 +8,7 @@ recursively. Supports `cd`, `ls`, and `size` on an in-memory directory tree.
 
 # 
 
-# \## Approach and Design
+# Approach and Design
 
 # 
 
@@ -42,7 +42,7 @@ by passing in command strings, without simulating keyboard input.
 
 # 
 
-# \## Key Files and Folders
+# Key Files and Folders
 
 # 
 
@@ -60,7 +60,7 @@ by passing in command strings, without simulating keyboard input.
 
 
 
-# \## Seed Data
+# Seed Data
 
 # 
 
@@ -94,9 +94,9 @@ root/
 
 # 
 
-# \## How to Run
+# How to Run
 
-# 
+
 
 Requires \*\*JDK 21\*\*.
 
